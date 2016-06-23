@@ -19,27 +19,4 @@ Your task is to fix them by writing factories and using them in your test.
 
 ## Task 3
 - Go to `spec/factories/bird_page_spec.rb`
-- Write factories for 2 new models: `UserPhoto` and `EnvironmentalLaw` and fix the tests.
-
-## Some user stories - some of them might not work, app is still under heavy development
-1. When user is not signed in
-- And he tries to show countries list
-- App redirects him to sign in page
-
-2. When user is not signed in
-- And he tries to show birds list
-- App redirects him to sign in page
-
-3. When user is signed in
-- And he tries to show countries list
-- He can see countries list.
-- For each country he can see number of regions and occuring birds
-- After selecting country he gets redirected to country page
-- In country page he can see list of regions, birds and environmental laws for given country
-
-4. When user is signed in
-- And he tries to show birds list
-- He is being shown a birds list
-- After selecting bird from a list, he gets redirected to bird page
-- In the bird page he can see bird name, latin_name, description, list of regions where he occured and list
-of environmental laws protecting him.
+- Write factories for 1 new model: `EnvironmentalLaw` and fix the tests.
