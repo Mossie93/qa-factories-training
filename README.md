@@ -23,7 +23,7 @@ Testing
 
 More reading
 ---------------
-- There is separate readme - my own, sghort FactoryGirl tutorial hidden in the `spec/factories` directory.
+- There is separate readme - my own, sghort FactoryGirl tutorial hidden in the `spec` directory.
 
 TODO
 ---------------
