@@ -32,7 +32,7 @@
     %tbody
       - bird.environmental_laws.each do |law|
         %tr
-          %td= link_to law.country.name, country_path(country)
+          %td= link_to law.country.name, country_path(law.country)
           %td= link_to law.name, country_environmental_law_path(law.country, law)
 
 - if bird.user_photos.any?
