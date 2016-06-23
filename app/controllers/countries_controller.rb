@@ -1,4 +1,4 @@
-class CountriesController < ApplicationController
+class CountriesController < BaseController
   expose :countries, ->{ Country.all }
   expose :country, build_params: :country_params
 

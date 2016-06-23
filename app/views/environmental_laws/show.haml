@@ -2,10 +2,10 @@
   %h4 Environmental Laws
   %h2= environmental_law.name
 - if current_user&.admin?
-  = link_to 'Destroy', country_environmental_law_path, method: :delete
-  = link_to 'Edit', edit_country_environmental_law_path(country, environmental_law)
+  = link_to 'Destroy', country_environmental_law_path, method: :delete, class: 'btn btn-wide btn-danger'
+  = link_to 'Edit', edit_country_environmental_law_path(country, environmental_law), class: 'btn btn-wide btn-primary'
 %h4 Description
-  = environmental_law.description
+%p= environmental_law.description
 %h4 Protected species
 %table.table
   %thead

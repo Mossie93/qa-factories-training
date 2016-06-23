@@ -1,4 +1,4 @@
-class BirdsController < ApplicationController
+class BirdsController < BaseController
   expose :birds, ->{ Bird.all }
   expose :bird, build_params: :bird_params
 

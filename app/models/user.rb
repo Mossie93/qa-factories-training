@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_attached_file :avatar, styles: { medium: "600x600>", thumb: "50x50>" }, default_url: "/images/:style/missing_avatar.png"
+  has_many :user_photos
+  has_attached_file :avatar, styles: { thumb: "50x50>" }, default_url: ':placeholder'
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   def admin?

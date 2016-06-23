@@ -1,4 +1,4 @@
-class RegionsController < ApplicationController
+class RegionsController < BaseController
   expose :regions
   expose :region, build_params: :region_params
   expose :country

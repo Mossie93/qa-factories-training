@@ -1,13 +1,14 @@
-class UserPhotosController < ApplicationController
+class UserPhotosController < BaseController
   expose :user_photo, build_params: :user_photo_params
   expose :bird
 
   def create
     user_photo.user = current_user
+    user_photo.bird = bird
     if user_photo.save
-      redirect_to new_bird_user_photo_path(bird)
-    else
       redirect_to bird_path(bird)
+    else
+      redirect_to new_bird_user_photo_path(bird)
     end
   end
 

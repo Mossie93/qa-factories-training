@@ -25,5 +25,20 @@ More reading
 ---------------
 - There is separate readme - my own, sghort FactoryGirl tutorial hidden in the `spec/factories` directory.
 
+TODO
+---------------
+Hide profile buttons
+Fix issue with avatar link
+Check if adding user photos works
+Prepare some tests
+- without login --> redirected to sign in page
+- after login --> can see birds list
+- after login --> can see bird with user photos
+- after login --> can see bird with regions
+- after login --> can see bird with law protection
+- after login --> can add birds
+- after login --> can add countries
+- after login --> can add regions
+- after login -->
 
 From developers for QAs <3
