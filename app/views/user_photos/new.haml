@@ -1,0 +1,7 @@
+.jumbotron.text-center
+  %h2
+    Adding photo for
+    = bird.name
+= simple_form_for [bird, user_photo] do |f|
+  = f.input :attachment, as: :file, required: true
+  = f.button :submit, class: 'btn btn-success btn-wide'

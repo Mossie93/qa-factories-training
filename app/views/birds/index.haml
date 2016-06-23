@@ -1,0 +1,16 @@
+.jumbotron
+  %h2.text-center Browsing birds
+- if current_user&.admin?
+  = link_to 'Add bird', new_bird_path, class: 'btn btn-success btn-wide'
+- if birds.present?
+  %table.table
+    %thead
+      %tr
+        %th Id
+        %th Name
+        %th Latin Name
+    %tbody
+      - birds.each do |bird|
+        = render 'row', bird: bird
+- else
+  %h3.text-center Sorry, no birds added yet...

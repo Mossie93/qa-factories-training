@@ -1,0 +1,21 @@
+.jumbotron
+  %h2.text-center
+    Showing
+    = region.country.name
+    \- region:
+    = region.name
+- if current_user&.admin?
+  = link_to 'Edit region', edit_country_region_path(country, region), class: 'btn btn-primary btn-wide'
+- if region.birds.any?
+  %h4.text-center No birds were found for this region...
+- else
+  %table.table
+    %thead
+      %tr
+        %td Name
+        %td Latin Name
+    %tbody
+      - region.birds.each do |bird|
+        %tr
+          %td= bird.name
+          %td= bird.latin_name

@@ -1,0 +1,2 @@
+module EnvironmentalLawsHelper
+end

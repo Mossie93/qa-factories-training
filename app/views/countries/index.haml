@@ -1,0 +1,18 @@
+.jumbotron
+  %h2.text-center Select country to show occuring birds
+- if current_user&.admin?
+  .row
+    = link_to 'Add Country', new_country_path, class: 'btn btn-success btn-wide'
+- if countries.present?
+  %table.table
+    %thead
+      %tr
+        %th Id
+        %th Name
+        %th Regions
+        %th Birds
+    %tbody
+      - countries.each do |country|
+        = render 'row', country: country
+- else
+  %h3.text-center Sorry, no countries added yet...

@@ -1,48 +1,29 @@
 Qa Factories Training
 ================
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
-
-Rails Composer is supported by developers who purchase our RailsApps tutorials.
-
-Problems? Issues?
+Application written for internal FactoryGirl workshops in Netguru.
 -----------
-
-Need help? Ask on Stack Overflow with the tag 'railsapps.'
-
-Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
-
-If the application doesn't work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include the diagnostics.
-
-Ruby on Rails
--------------
 
 This application requires:
 
 - Ruby 2.3.0
 - Rails 4.2.6
+- Postgres
 
-Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
-
-Getting Started
+Installation
 ---------------
+- Clone this repo
+- Enter project directory
+- Fill in database.yml with valid username and password
+- Run rake db:setup
 
-Documentation and Support
--------------------------
+Testing
+---------------
+- Enter project directory and run command `rspec spec`
 
-Issues
--------------
+More reading
+---------------
+- There is separate readme - my own, sghort FactoryGirl tutorial hidden in the `spec/factories` directory.
 
-Similar Projects
-----------------
 
-Contributing
-------------
-
-Credits
--------
-
-License
--------
+From developers for QAs <3

@@ -1,0 +1,5 @@
+%tr
+  %td= country.id
+  %td= link_to country.name, country_path(country)
+  %td= country.regions.count
+  %td= country.birds.count

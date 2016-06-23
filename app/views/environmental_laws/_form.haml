@@ -1,0 +1,8 @@
+= simple_form_for [country, environmental_law] do |f|
+  = f.input :name
+  = f.input :description
+  - if country.birds.any?
+    = f.association :birds, collection: country.birds, as: :check_boxes
+  - else
+    %p.no-birds-warning There are no birds occuring in this country :(
+  = f.button :submit, class: 'btn btn-success btn-wide'

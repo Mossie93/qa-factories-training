@@ -1,0 +1,51 @@
+%jumbotron
+  %h2.text-center
+    You are browsing
+    = country.name
+- if current_user&.admin?
+  = link_to "Add region", new_country_region_path(country), class: 'btn btn-success btn-wide'
+  = link_to "Edit country", edit_country_path(country), class: 'btn btn-primary btn-wide'
+  = link_to "Add Environmental Law", new_country_environmental_law_path(country), class: 'btn btn-warning btn-wide'
+- if country.birds.any?
+  %table.table.birds-list
+    %thead
+      %tr
+        %th Name
+        %th Regions
+    %tbody
+      - country.birds.each do |bird|
+        = render 'bird_row', bird: bird
+  %h4.text-center Browse specific region:
+  %table.table
+    %thead
+      %tr
+        %th Region
+        %th Number of birds
+        - if current_user&.admin?
+          %th Manage
+    %tbody
+      - country.regions.each do |region|
+        %tr
+          %td= link_to region.name, country_region_path(country, region)
+          %td= region.birds.count
+          - if current_user&.admin?
+            %td= link_to "Delete", country_region_path(country, region)
+            %td= link_to "Edit",  edit_country_region_path(country, region)
+
+- else
+  %h3.text-center No birds added to this country found
+
+- if country.environmental_laws.any?
+  Environmental Laws in
+  = country.name
+  %table.table
+    %thead
+      %tr
+        %th Name
+        %th Birds
+    %tbody
+      - country.environmental_laws.each do |law|
+        %td= link_to law.name, environmental_law_path(law)
+        %td
+          - law.birds.each do |bird|
+            = "#{ bird.name } "

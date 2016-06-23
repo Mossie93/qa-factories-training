@@ -1,0 +1,55 @@
+.jumbotron
+  %h2.text-center= bird.name
+  %h3.text-center= bird.latin_name
+
+- if current_user&.photographer? || current_user&.admin?
+  = link_to 'Add Photos', new_bird_user_photo_path(bird), class: 'btn btn-success btn-wide'
+
+- if current_user&.admin?
+  = link_to 'Edit', edit_bird_path(bird), class: 'btn btn-primary btn-wide'
+  = link_to 'Destroy', bird_path(bird), method: :delete, class: 'btn btn-danger btn-wide'
+
+%h4.text-center Description
+- if bird.description.present?
+  %p= bird.description
+- else
+  %p.text-center Sorry, no description provided.
+
+%h4.text-center Spotted in
+- if bird.regions.any?
+  - bird.regions.each do |region|
+    = "#{ region.name } (#{ region.country.name }) "
+- else
+  %p.text-center Sorry, no locations added.
+
+- if bird.environmental_laws.any?
+  %h4.text-center Protected by:
+  %table.table
+    %thead
+      %tr
+        %th Country
+        %th Law
+    %tbody
+      - bird.environmental_laws.each do |law|
+        %tr
+          %td= link_to law.country.name, country_path(country)
+          %td= link_to law.name, country_environmental_law_path(law.country, law)
+
+- if bird.user_photos.any?
+  #carousel-example-generic.carousel.slide{data: { ride: 'carousel' } }
+    %ol.carousel-indicators
+      - bird.user_photos.each_with_index do |photo, index|
+        %li{ data: { 'slide-to' => index, target: '#carousel-example-generic' } }
+    .carousel-inner{ role: 'listbox' }
+      - bird.user_photos.each_with_index do |photo, index|
+        .item
+          %img{ src: photo.attachment.url, alt: "Author: #{ photo.author }" }/
+          .carousel-caption
+            \...
+      \...
+    %a.left.carousel-control{ data: { slide: 'prev' }, href: '#carousel-example-generic', role: 'button' }
+      %span.glyphicon.glyphicon-chevron-left{ aria: { hidden: true } }
+      %span.sr-only Previous
+    %a.right.carousel-control{ data: { slide: 'next' }, href: '#carousel-example-generic', role: 'button' }
+      %span.glyphicon.glyphicon-chevron-right{ aria: { hidden: true } }
+      %span.sr-only Next

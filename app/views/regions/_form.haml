@@ -1,0 +1,5 @@
+= simple_form_for [country, region] do |f|
+  = f.input :name
+  = f.association :country, collection: Country.all, prompt: "Choose a country"
+  = f.association :birds, as: :check_boxes
+  = f.button :submit
