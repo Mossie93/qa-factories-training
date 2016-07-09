@@ -17,7 +17,7 @@ gem 'simple_form'
 group :development, :test do
   gem 'byebug'
   gem 'factory_girl_rails'
-  gem 'faker'
+  gem 'ffaker'
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'rspec-rails'
