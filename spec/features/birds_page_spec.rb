@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Birds Page' do
-  let(:birds_page) { App.new.birds_page }
+  let!(:birds_page) { App.new.birds_page }
 
   context 'When user is not present' do
     before do
@@ -13,12 +13,11 @@ feature 'Birds Page' do
     end
   end
 
-  #TODO login as some user and visit birds page.
   context 'When normal user is present' do
-    let!(:MISSING_USER) { FILL_THIS_IN }
+    let!(:regular_user) { create(:user) }
 
-    before do
-      login_as MISSING_USER
+    before :each do
+      login_as regular_user
       birds_page.load
     end
 
@@ -28,14 +27,15 @@ feature 'Birds Page' do
       end
     end
 
-    #TODO create 2 birds, login as some user and check if birds namesare being shown
+    # TODO: create 2 birds, login as some user and check if birds namesare being shown
     context 'and birds are present' do
-      let(:MISSING_BIRD_1) { FILL_THIS_IN }
-      let(:MISSING_BIRD_2) { FILL_THIS_IN }
+      let!(:bird_numero_uno) { create(:bird) }
+      let!(:bird_numero_duo) { create(:bird) }
 
       scenario 'Shows list of birds' do
-        expect(page).to have_content MISSING_BIRD_1_NAME
-        expect(page).to have_content MISSING_BIRD_2_NAME
+        binding.pry
+        expect(page).to have_content bird_numero_uno.name
+        expect(page).to have_content bird_numero_duo.name
       end
     end
   end

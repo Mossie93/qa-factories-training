@@ -1,4 +1,5 @@
 class BirdsController < BaseController
+  before_action :dupa
   expose :birds, ->{ Bird.all }
   expose :bird, build_params: :bird_params
 
@@ -28,4 +29,10 @@ class BirdsController < BaseController
   def bird_params
     params.require(:bird).permit(:name, :latin_name, :description, region_ids: [])
   end
+
+  def dupa
+    binding.pry
+    true
+  end
+
 end

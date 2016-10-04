@@ -1,3 +1,3 @@
-class BirsPage < SitePrism::Page
+class BirdsPage < SitePrism::Page
   set_url '/birds'
 end

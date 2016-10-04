@@ -2,26 +2,26 @@ require 'rails_helper'
 
 feature 'Bird page' do
   let(:bird_page) { App.new.bird_page }
-  let!(:MISSING_USER) { FILL_THIS_IN }
+  let!(:regular_user) { create(:user) }
 
   context 'When user is signed in' do
     before do
-      login_as MISSING_USER
-      bird_page.load(bird_id: MISSING_BIRD_ID)
+      login_as regular_user
+      bird_page.load(bird_id: bird.id)
     end
 
     context 'When bird with region is being shown' do
-      let!(:MISSING_BIRD) { FILL_THIS_IN }
-      let!(:MISSING_REGION) { FILL_THIS_IN }
+      let!(:bird) { create(:bird_with_regions) }
+      let!(:region) { bird_with_regions.regions.last.name }
 
       scenario 'shows region where bird occured' do
         expect(page).to have_content 'Spotted in'
-        expect(page).to have_content MISSING_REGION_NAME
+        expect(page).to have_content region
       end
     end
 
     context 'When bird without regions is being shown' do
-      let!(:MISSING_BIRD) { FILL_THIS_IN }
+      let!(:bird) { create(:bird) }
 
       scenario 'does not show any region information' do
         expect(page).not_to have_content 'Spotted in'
@@ -29,17 +29,17 @@ feature 'Bird page' do
     end
 
     context 'When bird with environmental laws is being shown' do
-      let!(:MISSING_BIRD) { FILL_THIS_IN }
-      let!(:MISSING_LAW) { FILL_THIS_IN }
+      let!(:bird) { create(:bird_with_laws) }
+      let!(:law) { bird_with_laws.environmental_laws.last.name }
 
       scenario 'shows country where the bird is protected' do
         expect(page).to have_content 'Protected by'
-        expect(page).to ahve_content MISSING_LAW_NAME
+        expect(page).to have_content law
       end
     end
 
     context 'When bird without environmental laws is being shown' do
-      let!(:MISSING_BIRD) { FILL THIS IN }
+      let!(:bird) { create(:bird) }
 
       scenario 'shows no information about environmental laws' do
         expect(page).not_to have_content 'Protected by'

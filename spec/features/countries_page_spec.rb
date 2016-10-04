@@ -3,12 +3,12 @@ require 'rails_helper'
 feature 'Countries page' do
   let(:countries_page) { App.new.countries_page }
 
-  #TODO create and login as some user.
+  # TODO: create and login as some user.
   context 'when normal user is present' do
-    let!(:MISSING_USER) { FILL_THIS_IN }
+    let!(:regular_user) { create(:user) }
 
     before do
-      login_as MISSING_USER
+      login_as regular_user
       countries_page.load
     end
 
@@ -18,24 +18,24 @@ feature 'Countries page' do
       end
     end
 
-    #TODO create 2 countries and check if their names are shown in countries page
+    # TODO: create 2 countries and check if their names are shown in countries page
     context 'and countries are present' do
-      let!(:MISSING_COUNTRY_1) { FILL_THIS_IN }
-      let!(:MISSING_COUNTRY_2) { FILL_THIS_IN }
+      let!(:country_0) { create(:country) }
+      let!(:country_1) { create(:country) }
 
       scenario 'shows list of countries' do
-        expect(page).to have_content MISSING_COUNTRY_1_NAME
-        expect(page).to have_content MISSING_COUNTRY_2_NAME
+        expect(page).to have_content country_0.name
+        expect(page).to have_content country_1.name
       end
     end
   end
 
-  #TODO create and login as admin user, check if you can see add country button
+  # TODO: create and login as admin user, check if you can see add country button
   context 'when user is an admin' do
-    let!(:MISSING_ADMIN) { FILL_THIS_IN }
+    let!(:admin_user) { create(:user_as_admin) }
 
     before do
-      login_as MISSING_ADMIN
+      login_as admin_user
       countries_page.load
     end
 

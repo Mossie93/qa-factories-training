@@ -1,3 +1,4 @@
+require 'rails_helper'
 # Feature: Sign in
 #   As a user
 #   I want to sign in
@@ -42,7 +43,7 @@ feature 'Sign in', :devise do
   #   Then I see an invalid password message
   scenario 'user cannot sign in with wrong password' do
     user = FactoryGirl.create(:user)
-    signin(user.email, 'invalidpass')
+    signin(user.email, user.password)
     expect(page).to have_content I18n.t 'devise.failure.invalid', authentication_keys: 'email'
   end
 
