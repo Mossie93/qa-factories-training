@@ -6,7 +6,7 @@ Application written for internal FactoryGirl workshops in Netguru.
 
 This application requires:
 
-- Ruby 2.3.0
+- Ruby 2.3.1
 - Rails 4.2.6
 - Postgres
 
@@ -25,7 +25,7 @@ Testing
 
 More reading
 ---------------
-- There is separate readme - my own, short FactoryGirl tutorial hidden in the `spec` directory.
+- FactoryGirl tutorial and exercises can be found [here](https://github.com/Mossie93/qa-factories-training/blob/master/spec/README.md).
 
 TODO
 ---------------

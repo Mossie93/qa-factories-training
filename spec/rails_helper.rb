@@ -15,10 +15,11 @@ require 'selenium-webdriver'
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
-Capybara.configure do |config|
-  config.default_driver = :selenium
-  config.javascript_driver = :selenium
+Capybara.register_driver :chrome do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
+
+Capybara.javascript_driver = :chrome
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
@@ -27,10 +28,6 @@ RSpec.configure do |config|
 
   config.before :suite do
     Warden.test_mode!
-  end
-
-  config.before(:each, type: :feature) do
-    Capybara.page.driver.browser.manage.window.maximize
   end
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
