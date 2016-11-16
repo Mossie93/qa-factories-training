@@ -25,7 +25,7 @@ Testing
 
 More reading
 ---------------
-- There is separate readme - my own, short FactoryGirl tutorial hidden in the `spec` directory.
+- FactoryGirl tutorial and exercises can be found [here](https://github.com/Mossie93/qa-factories-training/blob/master/spec/README.md).
 
 TODO
 ---------------
