@@ -16,7 +16,7 @@ ActiveRecord::Migration.maintain_test_schema!
 
 Capybara.configure do |config|
   config.default_driver = :selenium
-  config.javascript_driver = :selenium
+  config.javascript_driver = :webkit
 end
 
 RSpec.configure do |config|
